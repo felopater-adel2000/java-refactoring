@@ -10,7 +10,6 @@ public class TheatricalPlayers {
     public String print(Invoice invoice) {
         var totalAmount = 0;
         var volumeCredits = 0;
-        var result = String.format("Statement for %s\n", invoice.customer);
 
         NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
 
@@ -28,6 +27,7 @@ public class TheatricalPlayers {
             volumeCredits += thisCredits;
         }
 
+        var result = String.format("Statement for %s\n", invoice.customer);
         result += String.format("Amount owed is %s\n", format.format(totalAmount / 100));
         result += String.format("You earned %s credits\n", volumeCredits);
         return result;
