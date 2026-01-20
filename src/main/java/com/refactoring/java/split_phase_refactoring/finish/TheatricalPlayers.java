@@ -1,7 +1,6 @@
 package com.refactoring.java.split_phase_refactoring.finish;
 
 import com.refactoring.java.split_phase_refactoring.Invoice;
-import com.refactoring.java.split_phase_refactoring.Performance;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -16,7 +15,11 @@ public class TheatricalPlayers {
 
         for (var perf : invoice.performances) {
             var play = perf.play;
-            totalAmount = calculateTotalAmount(perf, totalAmount);
+            var amount = 40000;
+            if (perf.audience > 30) {
+                amount += 1000 * (perf.audience - 30);
+            }
+            totalAmount += amount;
 
 
             var credits = Math.max(perf.audience - 30, 0);
@@ -29,15 +32,6 @@ public class TheatricalPlayers {
         result += String.format("Amount owed is %s\n", format.format(totalAmount / 100));
         result += String.format("You earned %s credits\n", volumeCredits);
         return result;
-    }
-
-    private static int calculateTotalAmount(Performance perf, int totalAmount) {
-        var amount = 40000;
-        if (perf.audience > 30) {
-            amount += 1000 * (perf.audience - 30);
-        }
-        totalAmount += amount;
-        return totalAmount;
     }
 
 }
