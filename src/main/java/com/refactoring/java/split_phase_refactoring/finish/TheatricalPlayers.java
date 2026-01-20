@@ -26,13 +26,14 @@ public class TheatricalPlayers {
         for (var perf : invoice.performances) {
             totalAmount += calculateAmount(perf);
 
-            volumeCredits += calculateCredits(perf, perf.play);
+            volumeCredits += calculateCredits(perf);
         }
 
         return new InvoiceData(totalAmount, volumeCredits, invoice.customer);
     }
 
-    private static int calculateCredits(Performance perf, Play play) {
+    private static int calculateCredits(Performance perf) {
+        var play = perf.play;
         var credits = Math.max(perf.audience - 30, 0);
         if ("comedy".equals(play.type)) credits += Math.floor((double) perf.audience / 5);
         return credits;
