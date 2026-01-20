@@ -19,11 +19,11 @@ public class TheatricalPlayers {
             if (perf.audience > 30) {
                 amount += 1000 * (perf.audience - 30);
             }
+            totalAmount += amount;
+
 
             var credits = Math.max(perf.audience - 30, 0);
             if ("comedy".equals(play.type)) credits += Math.floor((double) perf.audience / 5);
-
-            totalAmount += amount;
             volumeCredits += credits;
         }
 
