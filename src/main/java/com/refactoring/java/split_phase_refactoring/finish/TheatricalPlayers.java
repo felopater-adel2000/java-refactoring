@@ -11,7 +11,7 @@ public class TheatricalPlayers {
         var totalAmount = 0;
         var volumeCredits = 0;
 
-        NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
+
 
         for (var perf : invoice.performances) {
             var play = perf.play;
@@ -27,6 +27,7 @@ public class TheatricalPlayers {
             volumeCredits += thisCredits;
         }
 
+        NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
         var result = String.format("Statement for %s\n", invoice.customer);
         result += String.format("Amount owed is %s\n", format.format(totalAmount / 100));
         result += String.format("You earned %s credits\n", volumeCredits);
