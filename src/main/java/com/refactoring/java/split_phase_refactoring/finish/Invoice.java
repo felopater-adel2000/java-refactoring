@@ -1,4 +1,5 @@
-package com.refactoring.java.split_phase_refactoring;
+package com.refactoring.java.split_phase_refactoring.finish;
+
 
 import java.util.List;
 

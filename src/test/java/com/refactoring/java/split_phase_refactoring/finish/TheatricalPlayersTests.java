@@ -1,8 +1,5 @@
 package com.refactoring.java.split_phase_refactoring.finish;
 
-import com.refactoring.java.split_phase_refactoring.Invoice;
-import com.refactoring.java.split_phase_refactoring.Performance;
-import com.refactoring.java.split_phase_refactoring.Play;
 import org.approvaltests.reporters.JunitReporter;
 import org.approvaltests.reporters.UseReporter;
 import org.junit.Test;

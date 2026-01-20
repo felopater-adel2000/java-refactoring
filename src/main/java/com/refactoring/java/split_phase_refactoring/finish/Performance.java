@@ -1,4 +1,4 @@
-package com.refactoring.java.split_phase_refactoring;
+package com.refactoring.java.split_phase_refactoring.finish;
 
 public class Performance {
 
