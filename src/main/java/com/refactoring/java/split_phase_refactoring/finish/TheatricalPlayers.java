@@ -20,8 +20,7 @@ public class TheatricalPlayers {
             totalAmount += calculateAmount(perf);
 
 
-            var credits = calculateCredits(perf, play);
-            volumeCredits += credits;
+            volumeCredits += calculateCredits(perf, play);
         }
 
         NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
