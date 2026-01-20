@@ -12,6 +12,10 @@ public class TheatricalPlayers {
     public String print(Invoice invoice) {
         InvoiceData data = getInvoiceData(invoice);
 
+        return presentInvoiceData(data);
+    }
+
+    private static String presentInvoiceData(InvoiceData data) {
         NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
         var result = String.format("Statement for %s\n", data.getCustomerName());
         result += String.format("Amount owed is %s\n", format.format(data.getTotalAmount() / 100));
