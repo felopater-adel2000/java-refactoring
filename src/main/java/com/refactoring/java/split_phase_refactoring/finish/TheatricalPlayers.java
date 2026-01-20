@@ -1,6 +1,5 @@
 package com.refactoring.java.split_phase_refactoring.finish;
 
-import com.refactoring.java.split_phase_refactoring.Invoice;
 
 import java.text.NumberFormat;
 import java.util.Locale;
