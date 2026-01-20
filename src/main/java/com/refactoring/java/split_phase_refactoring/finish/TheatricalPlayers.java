@@ -2,6 +2,7 @@ package com.refactoring.java.split_phase_refactoring.finish;
 
 import com.refactoring.java.split_phase_refactoring.Invoice;
 import com.refactoring.java.split_phase_refactoring.Performance;
+import com.refactoring.java.split_phase_refactoring.Play;
 
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -19,8 +20,7 @@ public class TheatricalPlayers {
             totalAmount += calculateAmount(perf);
 
 
-            var credits = Math.max(perf.audience - 30, 0);
-            if ("comedy".equals(play.type)) credits += Math.floor((double) perf.audience / 5);
+            var credits = calculateCredits(perf, play);
             volumeCredits += credits;
         }
 
@@ -29,6 +29,12 @@ public class TheatricalPlayers {
         result += String.format("Amount owed is %s\n", format.format(totalAmount / 100));
         result += String.format("You earned %s credits\n", volumeCredits);
         return result;
+    }
+
+    private static int calculateCredits(Performance perf, Play play) {
+        var credits = Math.max(perf.audience - 30, 0);
+        if ("comedy".equals(play.type)) credits += Math.floor((double) perf.audience / 5);
+        return credits;
     }
 
     private static int calculateAmount(Performance perf) {
