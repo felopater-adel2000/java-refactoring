@@ -11,7 +11,7 @@ public class TheatricalPlayers {
         return presentInvoiceData(data);
     }
 
-    private static String presentInvoiceData(InvoiceData data) {
+    private String presentInvoiceData(InvoiceData data) {
         NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
         var result = String.format("Statement for %s\n", data.getCustomerName());
         result += String.format("Amount owed is %s\n", format.format(data.getTotalAmount() / 100));
@@ -32,14 +32,14 @@ public class TheatricalPlayers {
         return new InvoiceData(totalAmount, volumeCredits, invoice.customer);
     }
 
-    private static int calculateCredits(Performance perf) {
+    private int calculateCredits(Performance perf) {
         var play = perf.play;
         var credits = Math.max(perf.audience - 30, 0);
         if ("comedy".equals(play.type)) credits += Math.floor((double) perf.audience / 5);
         return credits;
     }
 
-    private static int calculateAmount(Performance perf) {
+    private int calculateAmount(Performance perf) {
         var amount = 40000;
         if (perf.audience > 30) {
             amount += 1000 * (perf.audience - 30);
