@@ -15,15 +15,15 @@ public class TheatricalPlayers {
 
         for (var perf : invoice.performances) {
             var play = perf.play;
-            var thisAmount = 40000;
+            var amount = 40000;
             if (perf.audience > 30) {
-                thisAmount += 1000 * (perf.audience - 30);
+                amount += 1000 * (perf.audience - 30);
             }
 
             var thisCredits = Math.max(perf.audience - 30, 0);
             if ("comedy".equals(play.type)) thisCredits += Math.floor((double) perf.audience / 5);
 
-            totalAmount += thisAmount;
+            totalAmount += amount;
             volumeCredits += thisCredits;
         }
 
