@@ -9,4 +9,12 @@ public class Performance {
         this.play = play;
         this.audience = audience;
     }
+
+    int calculateAmount() {
+        var amount = 40000;
+        if (audience > 30) {
+            amount += 1000 * (audience - 30);
+        }
+        return amount;
+    }
 }
