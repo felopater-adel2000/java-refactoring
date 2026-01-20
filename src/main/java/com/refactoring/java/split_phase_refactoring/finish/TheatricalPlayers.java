@@ -19,7 +19,6 @@ public class TheatricalPlayers {
             var play = perf.play;
             totalAmount += calculateAmount(perf);
 
-
             volumeCredits += calculateCredits(perf, play);
         }
 
