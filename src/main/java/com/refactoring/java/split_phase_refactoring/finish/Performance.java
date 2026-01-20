@@ -17,4 +17,11 @@ public class Performance {
         }
         return amount;
     }
+
+    int calculateCredits() {
+        var play = this.play;
+        var credits = Math.max(audience - 30, 0);
+        if ("comedy".equals(play.type)) credits += Math.floor((double) audience / 5);
+        return credits;
+    }
 }
