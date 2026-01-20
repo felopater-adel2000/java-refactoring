@@ -10,22 +10,12 @@ import java.util.Locale;
 public class TheatricalPlayers {
 
     public String print(Invoice invoice) {
-        var totalAmount = 0;
-        var volumeCredits = 0;
-
-
-
-        for (var perf : invoice.performances) {
-            var play = perf.play;
-            totalAmount += calculateAmount(perf);
-
-            volumeCredits += calculateCredits(perf, play);
-        }
+        InvoiceData data = getInvoiceData(invoice);
 
         NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
-        var result = String.format("Statement for %s\n", invoice.customer);
-        result += String.format("Amount owed is %s\n", format.format(totalAmount / 100));
-        result += String.format("You earned %s credits\n", volumeCredits);
+        var result = String.format("Statement for %s\n", data.getCustomerName());
+        result += String.format("Amount owed is %s\n", format.format(data.getTotalAmount() / 100));
+        result += String.format("You earned %s credits\n", data.getVolumeCredits());
         return result;
     }
 
