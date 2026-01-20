@@ -20,11 +20,11 @@ public class TheatricalPlayers {
                 amount += 1000 * (perf.audience - 30);
             }
 
-            var thisCredits = Math.max(perf.audience - 30, 0);
-            if ("comedy".equals(play.type)) thisCredits += Math.floor((double) perf.audience / 5);
+            var credits = Math.max(perf.audience - 30, 0);
+            if ("comedy".equals(play.type)) credits += Math.floor((double) perf.audience / 5);
 
             totalAmount += amount;
-            volumeCredits += thisCredits;
+            volumeCredits += credits;
         }
 
         NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
