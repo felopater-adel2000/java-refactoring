@@ -24,10 +24,9 @@ public class TheatricalPlayers {
         var volumeCredits = 0;
 
         for (var perf : invoice.performances) {
-            var play = perf.play;
             totalAmount += calculateAmount(perf);
 
-            volumeCredits += calculateCredits(perf, play);
+            volumeCredits += calculateCredits(perf, perf.play);
         }
 
         return new InvoiceData(totalAmount, volumeCredits, invoice.customer);
