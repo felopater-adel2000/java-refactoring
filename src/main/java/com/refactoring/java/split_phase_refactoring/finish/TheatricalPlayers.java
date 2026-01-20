@@ -1,35 +1,35 @@
 package com.refactoring.java.split_phase_refactoring.finish;
 
-
 import java.text.NumberFormat;
 import java.util.Locale;
 
 public class TheatricalPlayers {
 
     public String print(Invoice invoice) {
+        InvoiceData data = getInvoiceData(invoice);
+
+        return presentInvoiceData(data);
+    }
+
+    private String presentInvoiceData(InvoiceData data) {
+        NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
+        var result = String.format("Statement for %s\n", data.getCustomerName());
+        result += String.format("Amount owed is %s\n", format.format(data.getTotalAmount() / 100));
+        result += String.format("You earned %s credits\n", data.getVolumeCredits());
+        return result;
+    }
+
+    private InvoiceData getInvoiceData(Invoice invoice) {
         var totalAmount = 0;
         var volumeCredits = 0;
-        var result = String.format("Statement for %s\n", invoice.customer);
-
-        NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
 
         for (var perf : invoice.performances) {
-            var play = perf.play;
-            var thisAmount = 40000;
-            if (perf.audience > 30) {
-                thisAmount += 1000 * (perf.audience - 30);
-            }
+            totalAmount += perf.calculateAmount();
 
-            var thisCredits = Math.max(perf.audience - 30, 0);
-            if ("comedy".equals(play.type)) thisCredits += Math.floor((double) perf.audience / 5);
-
-            totalAmount += thisAmount;
-            volumeCredits += thisCredits;
+            volumeCredits += perf.calculateCredits();
         }
 
-        result += String.format("Amount owed is %s\n", format.format(totalAmount / 100));
-        result += String.format("You earned %s credits\n", volumeCredits);
-        return result;
+        return new InvoiceData(totalAmount, volumeCredits, invoice.customer);
     }
 
 }
