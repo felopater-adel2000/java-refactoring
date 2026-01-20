@@ -16,8 +16,7 @@ public class TheatricalPlayers {
 
         for (var perf : invoice.performances) {
             var play = perf.play;
-            var amount = calculateAmount(perf);
-            totalAmount += amount;
+            totalAmount += calculateAmount(perf);
 
 
             var credits = Math.max(perf.audience - 30, 0);
