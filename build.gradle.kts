@@ -15,6 +15,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.10.0")
     testImplementation("com.approvaltests:approvaltests:3.2.0")
+    testImplementation("org.assertj:assertj-core:3.6.1")
 }
 
 tasks.test {
