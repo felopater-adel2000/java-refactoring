@@ -9,6 +9,11 @@ public class DateRange {
     public DateRange() {
     }
 
+    public DateRange(LocalDate from, LocalDate to) {
+        this.from = from;
+        this.to = to;
+    }
+
     public static DateRange createDateRange(LocalDate from, LocalDate to) {
         Assert.notNull(from, "from date cannot be null");
         Assert.notNull(to, "to date cannot be null");
@@ -17,10 +22,7 @@ public class DateRange {
             throw new IllegalArgumentException("to date before from date");
         }
 
-        DateRange dateRange = new DateRange();
-        dateRange.from = from;
-        dateRange.to = to;
-        return dateRange;
+        return new DateRange(from, to);
     }
 
     boolean overlapsWith(LocalDate date) {
