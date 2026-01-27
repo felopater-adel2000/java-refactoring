@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Event {
     private final String name;
-    private final DateRange dateRange = new DateRange();
+    private DateRange dateRange = new DateRange();
 
     public static Event of(String name, LocalDate from, LocalDate to) {
         return new Event(name, from, to);
@@ -21,8 +21,10 @@ public class Event {
             throw new IllegalArgumentException("to date before from date");
         }
 
-        this.dateRange.from = from;
-        this.dateRange.to = to;
+        DateRange dateRange = new DateRange();
+        dateRange.from = from;
+        dateRange.to = to;
+        this.dateRange = dateRange;
     }
 
     String getName() {
