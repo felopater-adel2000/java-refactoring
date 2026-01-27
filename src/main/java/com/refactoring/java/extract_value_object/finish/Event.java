@@ -14,21 +14,7 @@ public class Event {
         Assert.notNull(name, "name cannot be null");
         this.name = name;
 
-        this.dateRange = createDateRange(from, to);
-    }
-
-    private static DateRange createDateRange(LocalDate from, LocalDate to) {
-        Assert.notNull(from, "from date cannot be null");
-        Assert.notNull(to, "to date cannot be null");
-
-        if (to.isBefore(from)) {
-            throw new IllegalArgumentException("to date before from date");
-        }
-
-        DateRange dateRange = new DateRange();
-        dateRange.from = from;
-        dateRange.to = to;
-        return dateRange;
+        this.dateRange = DateRange.createDateRange(from, to);
     }
 
     String getName() {
