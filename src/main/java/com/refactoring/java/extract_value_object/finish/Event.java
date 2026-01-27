@@ -36,4 +36,10 @@ public class Event {
     LocalDate getTo() {
         return to;
     }
+
+    boolean overlapsWith(LocalDate date) {
+        return getFrom().isBefore(date) && getTo().isAfter(date)
+                || getFrom().isEqual(date)
+                || getTo().isEqual(date);
+    }
 }

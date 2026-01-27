@@ -20,16 +20,10 @@ public class EventRepository {
         Assert.notNull(date, "date cannot be null");
 
         for (Event storedEvent : events.values()) {
-            if (overlapsWith(date, storedEvent)) {
+            if (storedEvent.overlapsWith(date)) {
                 events.remove(storedEvent.getName());
             }
         }
-    }
-
-    private boolean overlapsWith(LocalDate date, Event storedEvent) {
-        return storedEvent.getFrom().isBefore(date) && storedEvent.getTo().isAfter(date)
-                || storedEvent.getFrom().isEqual(date)
-                || storedEvent.getTo().isEqual(date);
     }
 
     public Optional<Event> findByName(String name) {
