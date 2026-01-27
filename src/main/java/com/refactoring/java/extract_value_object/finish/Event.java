@@ -14,7 +14,7 @@ public class Event {
         Assert.notNull(name, "name cannot be null");
         this.name = name;
 
-        this.dateRange = DateRange.createDateRange(from, to);
+        this.dateRange = DateRange.of(from, to);
     }
 
     String getName() {

@@ -18,7 +18,7 @@ public class DateRange {
         this.to = to;
     }
 
-    public static DateRange createDateRange(LocalDate from, LocalDate to) {
+    public static DateRange of(LocalDate from, LocalDate to) {
         return new DateRange(from, to);
     }
 
