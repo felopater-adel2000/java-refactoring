@@ -29,16 +29,12 @@ public class Event {
         return name;
     }
 
-    LocalDate getFrom() {
-        return from;
-    }
-
     LocalDate getTo() {
         return to;
     }
 
     boolean overlapsWith(LocalDate date) {
-        if (getFrom().isBefore(date) && getTo().isAfter(date)) return true;
+        if (from.isBefore(date) && getTo().isAfter(date)) return true;
         return from.isEqual(date)
                 || getTo().isEqual(date);
     }
