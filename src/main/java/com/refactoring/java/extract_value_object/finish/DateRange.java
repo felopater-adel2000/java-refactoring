@@ -6,7 +6,7 @@ public class DateRange {
     LocalDate from;
     LocalDate to;
 
-    public DateRange(LocalDate from, LocalDate to) {
+    private DateRange(LocalDate from, LocalDate to) {
         Assert.notNull(from, "from date cannot be null");
         Assert.notNull(to, "to date cannot be null");
 
