@@ -14,6 +14,10 @@ public class Event {
         Assert.notNull(name, "name cannot be null");
         this.name = name;
 
+        this.dateRange = createDateRange(from, to);
+    }
+
+    private static DateRange createDateRange(LocalDate from, LocalDate to) {
         Assert.notNull(from, "from date cannot be null");
         Assert.notNull(to, "to date cannot be null");
 
@@ -24,7 +28,7 @@ public class Event {
         DateRange dateRange = new DateRange();
         dateRange.from = from;
         dateRange.to = to;
-        this.dateRange = dateRange;
+        return dateRange;
     }
 
     String getName() {
