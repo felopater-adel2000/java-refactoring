@@ -3,8 +3,8 @@ package com.refactoring.java.extract_value_object.finish;
 import java.time.LocalDate;
 
 public class DateRange {
-    LocalDate from;
-    LocalDate to;
+    private final LocalDate from;
+    private final LocalDate to;
 
     private DateRange(LocalDate from, LocalDate to) {
         Assert.notNull(from, "from date cannot be null");
