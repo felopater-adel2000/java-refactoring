@@ -12,6 +12,8 @@ public class Event {
 
     private Event(String name, LocalDate from, LocalDate to) {
         Assert.notNull(name, "name cannot be null");
+        this.name = name;
+
         Assert.notNull(from, "from date cannot be null");
         Assert.notNull(to, "to date cannot be null");
 
@@ -19,7 +21,6 @@ public class Event {
             throw new IllegalArgumentException("to date before from date");
         }
 
-        this.name = name;
         this.dateRange.from = from;
         this.dateRange.to = to;
     }
