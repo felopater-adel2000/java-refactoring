@@ -4,8 +4,7 @@ import java.time.LocalDate;
 
 public class Event {
     private final String name;
-    private final LocalDate from;
-    private final LocalDate to;
+    private final DateRange dateRange = new DateRange();
 
     public static Event of(String name, LocalDate from, LocalDate to) {
         return new Event(name, from, to);
@@ -21,8 +20,8 @@ public class Event {
         }
 
         this.name = name;
-        this.from = from;
-        this.to = to;
+        this.dateRange.from = from;
+        this.dateRange.to = to;
     }
 
     String getName() {
@@ -30,7 +29,6 @@ public class Event {
     }
 
     boolean overlapsWith(LocalDate date) {
-        if (from.isBefore(date) && to.isAfter(date)) return true;
-        return from.isEqual(date) || to.isEqual(date);
+        return dateRange.overlapsWith(date);
     }
 }
