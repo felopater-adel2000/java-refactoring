@@ -29,13 +29,8 @@ public class Event {
         return name;
     }
 
-    LocalDate getTo() {
-        return to;
-    }
-
     boolean overlapsWith(LocalDate date) {
-        if (from.isBefore(date) && getTo().isAfter(date)) return true;
-        return from.isEqual(date)
-                || getTo().isEqual(date);
+        if (from.isBefore(date) && to.isAfter(date)) return true;
+        return from.isEqual(date) || to.isEqual(date);
     }
 }
