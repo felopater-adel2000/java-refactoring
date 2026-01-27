@@ -38,8 +38,8 @@ public class Event {
     }
 
     boolean overlapsWith(LocalDate date) {
-        return getFrom().isBefore(date) && getTo().isAfter(date)
-                || getFrom().isEqual(date)
+        if (getFrom().isBefore(date) && getTo().isAfter(date)) return true;
+        return from.isEqual(date)
                 || getTo().isEqual(date);
     }
 }
