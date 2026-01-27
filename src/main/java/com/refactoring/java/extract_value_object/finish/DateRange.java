@@ -6,9 +6,6 @@ public class DateRange {
     LocalDate from;
     LocalDate to;
 
-    public DateRange() {
-    }
-
     public DateRange(LocalDate from, LocalDate to) {
         this.from = from;
         this.to = to;
