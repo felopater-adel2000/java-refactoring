@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Event {
     private final String name;
-    private DateRange dateRange = new DateRange();
+    private DateRange dateRange;
 
     public static Event of(String name, LocalDate from, LocalDate to) {
         return new Event(name, from, to);
