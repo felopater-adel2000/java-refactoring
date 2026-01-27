@@ -20,9 +20,7 @@ public class EventRepository {
         Assert.notNull(date, "date cannot be null");
 
         for (Event storedEvent : events.values()) {
-            if (storedEvent.getFrom().isBefore(date) && storedEvent.getTo().isAfter(date)
-                    || storedEvent.getFrom().isEqual(date)
-                    || storedEvent.getTo().isEqual(date)) {
+            if (storedEvent.overlapsWith(date)) {
                 events.remove(storedEvent.getName());
             }
         }
